@@ -29,7 +29,7 @@
                         @endforeach
                 </tbody>
                     @else
-                        <td><p class="alert alert-warning m-3 text-center">Não há registros na tabela!</p></td>
+                        <td colspan="4"><p class="alert alert-warning m-3 text-center">Não há registros na tabela!</p></td>
                     @endif
             </div>
         </table>
@@ -46,36 +46,28 @@
 
     <script>
         
-        let form = document.querySelector('.frmDelete')
-        
-        const btn = document.querySelector('.btnDelete');
-
-        form.addEventListener("submit", function(e) {
+        let forms = document.querySelectorAll('.frmDelete')
+    
+        Array.from(forms).map(form => {
+            form.addEventListener("submit", function(e) {
             e.preventDefault();
            
             Swal.fire({
-            title: 'Are you sure?',
-            text: "You won't be able to revert this!",
-            icon: 'warning',
-            showCancelButton: true,
-            confirmButtonColor: '#3085d6',
-            cancelButtonColor: '#d33',
-            confirmButtonText: 'Yes, delete it!'
+                title: 'Are you sure?',
+                text: "You won't be able to revert this!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Yes, delete it!'
             }).then((result) => {
-                if (result.isConfirmed) {
-
-                    Swal.fire(
-                        'Deleted!',
-                        'Your file has been deleted.',
-                        'success'
-                    )
+                if (!result.isConfirmed) return;
                     e.target.submit();
-                }
-                
             })
-        })
-    </script>
+        })    
+    })
 
+    </script>
 
     @if (Session::has('msg-success'))
     <script>

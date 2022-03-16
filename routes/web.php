@@ -40,5 +40,5 @@ Route::get('/listar', [UsersController::class, 'listarUsuarios']);
 Route::get('/listar/edit/{id}', [UsersController::class, 'edit']);
 Route::put('/listar/update/{id}', [UsersController::class, 'update'])->name('atualizar_usuario');
 
-Route::delete('/listar/delete/{id}', UsersController::class, '__invoke')->name('deletar_usuario');
+Route::delete('/listar/delete/{id}', [UsersController::class, 'destroy'])->name('deletar_usuario');
 

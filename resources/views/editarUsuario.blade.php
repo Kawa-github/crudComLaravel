@@ -2,7 +2,7 @@
 
 @section('content')
 
-<form action="/listar/update/{{$user->id}}" method="POST" class="d-flex justify-content-center">
+<form action="{{ route('atualizar_usuario', $user->id) }}" method="POST" class="d-flex justify-content-center">
     @csrf
     @method('PUT')
     <div class="card w-25 mt-3">

@@ -71,9 +71,9 @@ class UsersController extends Controller
         return redirect()->to('/listar')->with('msg-success','Usuário editado com sucesso!');        
     }
 
-    public function __invoke($id){
+    public function destroy($id){
         User::findOrFail($id)->delete();
 
-        return redirect()->to('/listar');   
+        return redirect()->to('/listar')->with('msg-success','Usuário deletado com sucesso!');   
     }
 }
