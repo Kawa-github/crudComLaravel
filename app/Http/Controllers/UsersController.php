@@ -8,6 +8,22 @@ use Illuminate\Support\Facades\Auth;
 
 class UsersController extends Controller
 {
+
+
+    public function authenticate(Request $request ){
+        // $credentials = $request->validate([
+        //     'email' => ['required', 'email'],
+        //     'password' => ['required'],
+        // ]);
+
+        // if(Auth::attempt($credentials)){
+        //     $request->session()->regenerate();
+
+        //     return redirect()->intended('/home');
+        // }
+
+    }
+
     public function cadastrar(Request $request){
         // dd($request->all());
         
@@ -37,12 +53,23 @@ class UsersController extends Controller
 
         
         if(Auth::attempt($dados)){
-            return redirect('home');
+            return redirect()->intended('/home');
         }
 
         return back()->with([
             'msg-error' => 'Ocorreu algum erro.',
         ]);
+    }
+
+    public function logout(Request $request){
+        Auth::logout();
+
+        $request->session()->invalidate();
+
+        $request->session()->regenerateToken();
+
+        return redirect('/');
+
     }
 
     public function listarUsuarios(){

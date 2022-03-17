@@ -19,7 +19,7 @@
                             <td>  {{$user->email}} </td>
                             <td class="d-flex">
                                 <a class="btn btn-warning btn-sm me-1 text-white" href="/listar/edit/{{$user->id}}">Editar</a>    
-                                <form action="/listar/delete/{{$user->id}}" method="POST" class="frmDelete">
+                                <form action="{{ route('deletar_usuario', $user->id) }}" method="POST" class="frmDelete">
                                     @method('delete')
                                     @csrf
                                     <button type="submit" class="btn btn-danger btn-sm text-white btnDelete">Deletar</button>
@@ -53,13 +53,13 @@
             e.preventDefault();
            
             Swal.fire({
-                title: 'Are you sure?',
-                text: "You won't be able to revert this!",
+                title: 'Tem certeza?',
+                text: "Você não poderá reverter isto!",
                 icon: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'Yes, delete it!'
+                confirmButtonText: 'Confirmar!'
             }).then((result) => {
                 if (!result.isConfirmed) return;
                     e.target.submit();

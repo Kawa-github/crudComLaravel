@@ -12,33 +12,47 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
 </head>
 
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">Crud com Laravel</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="/">Home</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/listar">Listar usuários</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="/cadastro">Cadastrar</a>
-        </li>
-      </ul>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Crud com Laravel</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+
+          @guest
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Home</a>
+          </li>
+          @endguest
+
+          @auth
+          <li class="nav-item">
+            <a class="nav-link" href="/home">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/listar">Listar usuários</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/cadastro">Cadastrar</a>
+          </li>
+          @endauth
+        </ul>
+      </div>
     </div>
   </nav>
+
 
 <body class="bg-ligth">
     <div>
         @yield('content')
     </div>
-        
+ 
 </body>
 
 {{-- <script src="/js/app.js"></script> --}}
+{{-- @if
 
+@endif --}}
 </html>
