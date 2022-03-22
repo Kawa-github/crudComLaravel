@@ -12,6 +12,16 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
 </head>
 
+<style>
+  .btnSair{
+    float: right; 
+  }
+  .frmSair{
+    display: flex;
+    justify-content: right;
+  }
+</style>
+
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Crud com Laravel</a>
@@ -20,7 +30,7 @@
       </button>
 
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav">
+        <ul class="navbar-nav me-auto">
 
           @guest
           <li class="nav-item">
@@ -39,19 +49,22 @@
             <a class="nav-link" href="/cadastro">Cadastrar</a>
           </li>
         </ul>
-      
-      </div>
-      
-      <form action="{{ route('fazerLogout') }}" method="POST">
-        @csrf
-          <button class="nav-item btn btn-link btn-sm link-warning 
-          text-decoration-none float-end m-2 fw-bold fs-5">
+
+        <form action="{{ route('fazerLogout') }}" method="POST" class="frmSair">
+          @csrf
+          <button class="btn btn-outline-warning btn-sm 
+          btnSair float-end 
+          m-2 fw-bold">
           SAIR
         </button>
       </form>
-    
+        
+      </div>
+      
+      
       @endauth
-
+    
+      
     </div>
   </nav>
 

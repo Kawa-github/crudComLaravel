@@ -2,8 +2,8 @@
 @section('content')
 
   <div class="d-flex justify-content-center">
+      <div class="table-responsive">
     <table class="table table-hover m-3 w-50">
-        <div class="table-responsive">
                 <thead class="bg-dark text-white">
                     <th>ID</th>
                     <th>Nome</th>
@@ -31,8 +31,8 @@
                     @else
                         <td colspan="4"><p class="alert alert-warning m-3 text-center">Não há registros na tabela!</p></td>
                     @endif
+                </table>
             </div>
-        </table>
 
     </div>
     

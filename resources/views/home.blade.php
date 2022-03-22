@@ -5,11 +5,11 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-8">
-            <div class="card">
+            <div class="card mt-3 text-center ">
                 
-                <div class="card-header">{{ __('Página Inicial') }}</div>
+                <div class="card-header ">{{ __('Página Inicial') }}</div>
                 <div class="card-body">
-                    {{ ('Você está logado.') }}
+                   <div> Seja bem vindo, {{ auth()->user()->name }} </div>
                 </div>
             </div>
         </div>
