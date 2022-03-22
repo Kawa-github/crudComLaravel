@@ -21,10 +21,7 @@ Route::get('/', function(){
 
 
 
-
-
 Route::post('/', [UsersController::class, 'realizarLogin'])->name('realizar_login');
-
 
 Route::middleware("auth")->group(function(){
     Route::post('/cadastro', [UsersController::class, 'cadastrar'])->name('cadastrar_usuario');
@@ -37,6 +34,6 @@ Route::middleware("auth")->group(function(){
         return view ('home');
     });
     
-    Route::get('/cadastro', fn() => view('cadastro'));    
+    Route::get('/cadastro', fn() => view('cadastro')); // rota com arrow function    
 });
 

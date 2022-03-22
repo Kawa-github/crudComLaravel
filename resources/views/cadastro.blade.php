@@ -3,7 +3,7 @@
 
 <style>
     .frm-login{
-        margin: 15px;
+        /* margin: 15px; */
     }
     .frm-login button{
         margin: 5px;    
@@ -24,9 +24,12 @@
         </ul>
     </div>
 @endif
-<form action="{{ route('cadastrar_usuario') }}" method="POST" class="frm-login d-flex justify-content-center">
+
+<div class="d-flex justify-content-center ">
+
+<form action="{{ route('cadastrar_usuario') }}" method="POST" class="frm-login card col-12 col-md-6 mt-4">
     @csrf
-    <div class="card w-25">
+    <div class="">
         <h3>Formulário de Cadastro</h3>
         <div class="card-body">
             <div id="camposFrm">
@@ -48,9 +51,10 @@
             <label for="invalidCheck" class="form-check-label">Concordo com os <a href="#"> termos </a> e condições</label>
         </div>
         </div>
-        <button type="submit" class="btn btn-primary btn-block btn-cad">CADASTRAR</button>
     </div>
+    <button type="submit" class="btn btn-primary btn-cad">CADASTRAR</button>
     </form>
+</div>
 
     <script>
 

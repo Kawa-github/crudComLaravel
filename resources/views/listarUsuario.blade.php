@@ -17,9 +17,9 @@
                             <td> {{ $user->id }} </td>         
                             <td> {{$user->name}} </td>         
                             <td>  {{$user->email}} </td>
-                            <td class="d-flex">
+                            <td class="d-flex justify-content-center align-items-center">
                                 <a class="btn btn-warning btn-sm me-1 text-white" href="/listar/edit/{{$user->id}}">Editar</a>    
-                                <form action="{{ route('deletar_usuario', $user->id) }}" method="POST" class="frmDelete">
+                                <form action="{{ route('deletar_usuario', $user->id) }}" method="POST" class="frmDelete mb-0">
                                     @method('delete')
                                     @csrf
                                     <button type="submit" class="btn btn-danger btn-sm text-white btnDelete">Deletar</button>
@@ -35,10 +35,16 @@
         </table>
 
     </div>
+    
     <div class="mt-5 d-flex justify-content-center align-items-center">
         {{ $users->links() }}
     </div>
     
+    @endsection
+{{--     
+    @section('footer')
+    @endsection --}}
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"
     integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
     crossorigin="anonymous">
@@ -59,7 +65,7 @@
                 showCancelButton: true,
                 confirmButtonColor: '#3085d6',
                 cancelButtonColor: '#d33',
-                confirmButtonText: 'Confirmar!'
+                confirmButtonText: 'Confirmar'
             }).then((result) => {
                 if (!result.isConfirmed) return;
                     e.target.submit();
@@ -79,4 +85,3 @@
     @endif
 
 
-@endsection

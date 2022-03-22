@@ -18,6 +18,7 @@
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
+
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
 
@@ -37,22 +38,57 @@
           <li class="nav-item">
             <a class="nav-link" href="/cadastro">Cadastrar</a>
           </li>
-          @endauth
         </ul>
+      
       </div>
+      
+      <form action="{{ route('fazerLogout') }}" method="POST">
+        @csrf
+          <button class="nav-item btn btn-link btn-sm link-warning 
+          text-decoration-none float-end m-2 fw-bold fs-5">
+          SAIR
+        </button>
+      </form>
+    
+      @endauth
+
     </div>
   </nav>
-
 
 <body class="bg-ligth">
     <div>
         @yield('content')
     </div>
- 
 </body>
 
-{{-- <script src="/js/app.js"></script> --}}
-{{-- @if
+{{-- <footer class="mt-5 bg-dark text-white text-center text-lg-start d-flex align-items-end">
+  @yield('footer')
+  
+  <div class="container p-4">
+    <div class="row"> 
+      <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+        <h5 class="text-uppercase">Footer text</h5>
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque ea quis
+          molestias. Fugiat pariatur maxime quis culpa corporis vitae repudiandae
+          aliquam voluptatem veniam, est atque cumque eum delectus sint!
+        </p>
+      </div>
+  
+      <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+        <h5 class="text-uppercase">Footer text</h5>
+        <p>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Iste atque ea quis
+          molestias. Fugiat pariatur maxime quis culpa corporis vitae repudiandae
+          aliquam voluptatem veniam, est atque cumque eum delectus sint!
+        </p>
+      </div>
+    </div>
+  </div>
+  
+  <div class="text-center p-3">
+    © 2022 Copyright
+  </div>
+</footer> --}}
 
-@endif --}}
 </html>

@@ -9,22 +9,8 @@ use Illuminate\Support\Facades\Auth;
 class UsersController extends Controller
 {
 
-
-    public function authenticate(Request $request ){
-        // $credentials = $request->validate([
-        //     'email' => ['required', 'email'],
-        //     'password' => ['required'],
-        // ]);
-
-        // if(Auth::attempt($credentials)){
-        //     $request->session()->regenerate();
-
-        //     return redirect()->intended('/home');
-        // }
-
-    }
-
     public function cadastrar(Request $request){
+        
         // dd($request->all());
         
         $request->validate([
@@ -39,19 +25,19 @@ class UsersController extends Controller
             'password' => bcrypt($request['password'])
         ]);
 
-        // Auth::guard()->login($user);
+        // Auth::guard()->login($user); para fazer login automático assim que cadastrado
         
         return redirect()->to('/')->with('msg-success','Usuário cadastrado com sucesso!');
 
     }
 
     public function realizarLogin(Request $request){
+
         $dados = $request->validate([
             'email' => 'string',
             'password' => 'required'
         ]);
 
-        
         if(Auth::attempt($dados)){
             return redirect()->intended('/home');
         }
@@ -62,12 +48,12 @@ class UsersController extends Controller
     }
 
     public function logout(Request $request){
+        
         Auth::logout();
 
         $request->session()->invalidate();
-
         $request->session()->regenerateToken();
-
+        
         return redirect('/');
 
     }
@@ -75,14 +61,13 @@ class UsersController extends Controller
     public function listarUsuarios(){
         
         $users = User::paginate(5);
-
         return view('listarUsuario', compact('users'));
 
     }
 
-    public function edit(Request $request ,$id){
-        $user = User::findOrFail($id);        
+    public function edit($id){
 
+        $user = User::findOrFail($id);        
         return view('editarUsuario', compact('user'));
    
     }
@@ -103,4 +88,5 @@ class UsersController extends Controller
 
         return redirect()->to('/listar')->with('msg-success','Usuário deletado com sucesso!');   
     }
+
 }
