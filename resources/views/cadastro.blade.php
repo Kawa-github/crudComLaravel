@@ -2,16 +2,6 @@
 @section('content')    
 
 <style>
-    .frm-login{
-        /* margin: 15px; */
-    }
-    .frm-login button{
-        margin: 5px;    
-    }
-    h3{
-        text-align: center;
-        padding: 7px;
-    }
 </style>
 
 @if ($errors->any() )
@@ -25,16 +15,16 @@
     </div>
 @endif
 
-<div class="d-flex justify-content-center ">
-
-<form action="{{ route('cadastrar_usuario') }}" method="POST" class="frm-login card col-12 col-md-6 mt-4">
+<div class="d-flex justify-content-center">
+    <form action="{{ route('cadastrar_usuario') }}" method="POST" class="frmCadastro
+    col-12 col-md-6">
     @csrf
-    <div class="">
-        <h3>Formulário de Cadastro</h3>
+    <div class="card cardCadastro shadow-lg mt-4 m-2">
+        <h3 id="tituloCard">Formulário de Cadastro</h3>
         <div class="card-body">
             <div id="camposFrm">
-            <div class="mb-3">
-                <label for="">Nome:</label>
+                <div class="mb-3">
+                    <label for="">Nome:</label>
                 <input type="text" class="form-control inputCad" placeholder="Insira o nome.." name="name" maxlength="20" required>
             </div>
             <div class="mb-3">
@@ -50,15 +40,16 @@
             <input type="checkbox" class="form-check-input" id="invalidCheck">
             <label for="invalidCheck" class="form-check-label">Concordo com os <a href="#"> termos </a> e condições</label>
         </div>
-        </div>
     </div>
     <button type="submit" class="btn btn-primary btn-cad">CADASTRAR</button>
+    
+    </div>
     </form>
 </div>
 
     <script>
 
-        let formCadastro = document.querySelector('.frm-login')
+        let formCadastro = document.querySelector('.frmCadastro')
         // console.log(formCadastro)
         
         // let btnCadastro = document.querySelector('.btn-cad')

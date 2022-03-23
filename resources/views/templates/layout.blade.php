@@ -5,23 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="/css/app.css" rel="stylesheet">
-        
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/style.css">
     <title>@yield('title','Crud com Laravel')</title>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script> 
 </head>
-
-<style>
-  .btnSair{
-    float: right; 
-  }
-  .frmSair{
-    display: flex;
-    justify-content: right;
-  }
-</style>
-
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="#">Crud com Laravel</a>
@@ -61,18 +48,22 @@
         
       </div>
       
-      
       @endauth
-    
+      
       
     </div>
   </nav>
-
-<body class="bg-ligth">
+  
+  <body class="bg-ligth">
     <div>
-        @yield('content')
+      @yield('content')
     </div>
-</body>
+
+    @auth
+    <button class="btn btn-sm btn-danger position-fixed m-3" onclick="history.go(-1)">Voltar</button>
+    @endauth
+
+  </body>
 
 {{-- <footer class="mt-5 bg-dark text-white text-center text-lg-start d-flex align-items-end">
   @yield('footer')

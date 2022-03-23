@@ -1,0 +1,64 @@
+
+/*Tela de login*/
+
+.frmLogin{
+    margin: 15px;
+    /* filter: blur(2px); */
+}
+.frmLogin button{
+    border-radius: 20px;
+    margin: 5px;
+}
+
+.cardLogin{
+    border-radius: 25px;
+}
+.informations-custom{
+    border-radius: 15px;
+    border-left:3px solid #d3d3dd;
+    background-color: #2a2a72; 
+    background-image: linear-gradient(315deg, #2a2a72 0%, #009ffd 74%); 
+}
+.informations-custom p{
+    text-align: center;
+}
+.informations-custom a{
+    color: aliceblue;
+}
+
+.informations-custom a:hover{
+    color: #DCDCDC 	;
+}
+
+.btn-entrar{
+    background-color: #2a2a72;
+    background-image: linear-gradient(315deg, #2a2a72 0%, #009ffd 74%);
+}
+
+/*Tela de cadastro*/
+
+.cardCadastro{
+    border-radius: 20px;
+}
+.frmCadastro button{
+    border-radius: 20px;
+}
+#tituloCard{
+    text-align: center;
+    padding: 7px;
+}
+
+
+/*Formulário de editar usuário*/
+
+.frmEditar button{
+    border-radius: 20px;
+}
+
+.cardEditar{
+    border-radius: 20px;
+}
+
+@media screen and (max-width: 993px) {
+    
+}

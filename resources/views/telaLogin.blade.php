@@ -1,41 +1,5 @@
 @extends('templates.layout')
 @section('content')    
-<style>
-    .frmLogin{
-        margin: 15px;
-        /* filter: blur(2px); */
-    }
-    .frmLogin button{
-        border-radius: 20px;
-        margin: 5px;
-    }
-
-    .card{
-        border-radius: 25px;
-    }
-    .informations-custom{
-        border-radius: 15px;
-        border-left:3px solid #d3d3dd;
-        background-color: #2a2a72; 
-        background-image: linear-gradient(315deg, #2a2a72 0%, #009ffd 74%); 
-    }
-    .informations-custom p{
-        text-align: center;
-    }
-    .informations-custom a{
-        color: aliceblue;
-    }
-
-    .informations-custom a:hover{
-        color: #DCDCDC 	;
-    }
-
-    .btn-entrar{
-        background-color: #2a2a72;
-        background-image: linear-gradient(315deg, #2a2a72 0%, #009ffd 74%);
-    }
-
-</style>
     @if (Session::has('msg-error'))
         <script>
             Swal.fire({
@@ -56,7 +20,7 @@
 
     <form method="POST" action="{{ route('realizar_login') }}" class="frmLogin d-flex justify-content-center">
         @csrf
-        <div class="card mt-5 shadow-lg">
+        <div class="card mt-5 shadow-lg cardLogin">
                 <div class="row">
                     <div class="p-5 col-12 col-md-6">
                         <div class="mb-3">
