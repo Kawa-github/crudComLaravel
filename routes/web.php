@@ -19,11 +19,9 @@ Route::get('/', function(){
     return view('telaLogin');
 })->name('login');
 
-
-
 Route::post('/', [UsersController::class, 'realizarLogin'])->name('realizar_login');
 
-Route::middleware("auth")->group(function(){
+Route::middleware("auth")->group(function(){ //autenticação
     Route::post('/cadastro', [UsersController::class, 'cadastrar'])->name('cadastrar_usuario');
     Route::get('/listar', [UsersController::class, 'listarUsuarios']);
     Route::get('/listar/edit/{id}', [UsersController::class, 'edit']);
@@ -34,6 +32,6 @@ Route::middleware("auth")->group(function(){
         return view ('home');
     });
     
-    Route::get('/cadastro', fn() => view('cadastro')); // rota com arrow function    
+    Route::get('/cadastro', fn() => view('cadastro')); // exemplo de rota com arrow function    
 });
 

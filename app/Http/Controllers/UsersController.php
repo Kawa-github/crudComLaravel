@@ -12,7 +12,6 @@ class UsersController extends Controller
     public function cadastrar(Request $request){
         
         // dd($request->all());
-        
         $request->validate([
             'name' => 'string|required',
             'email' => 'email|required',

@@ -1,9 +1,6 @@
 @extends('templates.layout')
 @section('content')    
 
-<style>
-</style>
-
 @if ($errors->any() )
     <div class="alert alert-danger">
         {{-- {{dd( $errors )}} --}}
@@ -25,38 +22,30 @@
             <div id="camposFrm">
                 <div class="mb-3">
                     <label for="">Nome:</label>
-                <input type="text" class="form-control inputCad" placeholder="Insira o nome.." name="name" maxlength="20" required>
+                    <input type="text" class="form-control inputCad" placeholder="Insira o nome.." name="name" maxlength="20" required>
+                </div>
+                <div class="mb-3">
+                    <label for="">Email:</label>
+                    <input type="email" class="form-control" placeholder="Insira o e-mail" name="email" maxlength="20" required>
+                </div>
+                <div class="mb-3">
+                    <label for="">Senha:</label>
+                    <input type="password" placeholder="Insira a senha" class="form-control" name="password" maxlength="20" required>
+                </div>
             </div>
-            <div class="mb-3">
-                <label for="">Email:</label>
-                <input type="email" class="form-control" placeholder="Insira o e-mail" name="email" maxlength="20" required>
-            </div>
-            <div class="mb-3">
-                <label for="">Senha:</label>
-                <input type="password" placeholder="Insira a senha" class="form-control" name="password" maxlength="20" required>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="invalidCheck">
+                <label for="invalidCheck" class="form-check-label">Concordo com os <a href="#"> termos </a> e condições</label>
             </div>
         </div>
-        <div class="form-check">
-            <input type="checkbox" class="form-check-input" id="invalidCheck">
-            <label for="invalidCheck" class="form-check-label">Concordo com os <a href="#"> termos </a> e condições</label>
-        </div>
-    </div>
-    <button type="submit" class="btn btn-primary btn-cad">CADASTRAR</button>
-    
+       <button type="submit" class="btn btn-primary btn-cad">CADASTRAR</button>
     </div>
     </form>
 </div>
-
     <script>
-
-        let formCadastro = document.querySelector('.frmCadastro')
-        // console.log(formCadastro)
         
-        // let btnCadastro = document.querySelector('.btn-cad')
-        // console.log(btnCadastro)
-        
+        let formCadastro = document.querySelector('.frmCadastro')        
         let inputsForm = document.querySelectorAll('.card-body #camposFrm input'); 
-        // console.log(inputsForm) 
         
         formCadastro.addEventListener('submit',function(e){
             e.preventDefault();
@@ -70,9 +59,7 @@
             formCadastro.submit()
         })
 
-        function validarCampos(){
-            
-        }
+        // function validarCampos(){}
 
         function existeCamposVazios(inputs){
             array = Array.from(inputs)
@@ -81,16 +68,5 @@
 
         }
 
-        // let senha = document.querySelector('input[name="senha"]')
-        // pegarComprimentoSenha(senha => senha.length)
-        
-        // function validarCampoSenha(){
-        //     formCadastro.preventDefault()
-        //     if(senha.value < 0){
-        //         alert('é nec')
-        //     }
-        //     pegarComprimentoSenha(senha)
-        // }
     </script>
-
 @endsection

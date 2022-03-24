@@ -15,7 +15,6 @@
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav me-auto">
 
@@ -25,7 +24,7 @@
           </li>
           @endguest
 
-          @auth
+        @auth
           <li class="nav-item">
             <a class="nav-link" href="/home">Home</a>
           </li>
@@ -39,18 +38,15 @@
 
         <form action="{{ route('fazerLogout') }}" method="POST" class="frmSair">
           @csrf
-          <button class="btn btn-outline-warning btn-sm 
-          btnSair float-end 
-          m-2 fw-bold">
-          SAIR
-        </button>
-      </form>
-        
+            <button class="btn btn-outline-warning btn-sm 
+            btnSair float-end 
+            m-2 fw-bold">
+            SAIR
+          </button>
+        </form>
       </div>
-      
+
       @endauth
-      
-      
     </div>
   </nav>
   
@@ -60,9 +56,9 @@
     </div>
 
     @auth
-    <button class="btn btn-sm btn-danger position-fixed m-3" onclick="history.go(-1)">Voltar</button>
+      <button class="btn btn-sm btn-danger position-fixed m-3" onclick="history.go(-1)">Voltar</button>
     @endauth
-
+    
   </body>
 
 {{-- <footer class="mt-5 bg-dark text-white text-center text-lg-start d-flex align-items-end">
